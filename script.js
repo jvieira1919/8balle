@@ -4,7 +4,7 @@ var generateBtn = document.querySelector("#generate");
 var special_chars = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
 var upper = ["A", "B", "C", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lower = ["a", "b", "c", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var numeric = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+var numeric = [0,1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 // Write password to the #password input
 function writePassword() {
@@ -61,19 +61,20 @@ function generatePassword() {
     return;
   };
 
-  function UserInput(generatedPassword) {
-    document.getElementById("password").textContent = generatedPassword;
-  };
-
   for (var i = 0; i < passwordLength; i++) {
-    generatedPassword = char_superset[Math.floor(Math.random() * passwordLength.length)];
-    char_superset.push(generatedPassword);
+    var randomNumberPicked = Math.floor(Math.random() * passwordLength );
+    generatedPassword.push(randomNumberPicked);
   }
-
+  
+  generatedPassword += randomNumberPicked;
   char_superset = generatedPassword.join("");
   UserInput(generatedPassword);
   return generatedPassword;
 }
+
+function UserInput(generatedPassword) {
+  document.getElementById("password").textContent = generatedPassword;
+};
 
 // This puts the password value into the textbox
 
