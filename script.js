@@ -60,23 +60,22 @@ function generatePassword() {
     alert("You must choose one of the four options")
     return;
   };
-
+ console.log(char_superset)
   for (var i = 0; i < passwordLength; i++) {
-    var randomNumberPicked = Math.floor(Math.random() * passwordLength );
-    generatedPassword.push(randomNumberPicked);
+    var randomNumberPicked = Math.floor(Math.random() * char_superset.length );
+    console.log("the code has looped "+ i+" times")
+    
+    console.log(randomNumberPicked)
+    console.log(char_superset[randomNumberPicked])
+    generatedPassword= generatedPassword+char_superset[randomNumberPicked]
+    console.log(generatedPassword)
+    
   }
-  
-  generatedPassword += randomNumberPicked;
-  char_superset = generatedPassword.join("");
-  UserInput(generatedPassword);
+  // generatedPassword += randomNumberPicked;
+  // char_superset = generatedPassword.join("");
+  // UserInput(generatedPassword);
   return generatedPassword;
 }
-
-function UserInput(generatedPassword) {
-  document.getElementById("password").textContent = generatedPassword;
-};
-
-// This puts the password value into the textbox
 
 
     //find a random number between 0 and the length of char_superset 
